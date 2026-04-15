@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\ReportController;
+use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
     if (Auth::check()) {
@@ -12,7 +14,10 @@ Route::get('/', function () {
         return redirect('/user/dashboard');
     }
     return view('welcome');
+
 });
+
+
 
 Route::middleware('guest')->group(function () {
     Route::get('/login', [\App\Http\Controllers\Auth\LoginController::class, 'show'])->name('login');
@@ -42,14 +47,16 @@ Route::middleware('auth')->group(function () {
         Route::get('/user/dashboard', function () {
             return view('user.dashboard');
         });
+        
+        // User Report CRUD
+        Route::get('/report', [ReportController::class, 'index'])->name('report.index');
+        Route::get('/report/create', [ReportController::class, 'create'])->name('report.create');
+        Route::post('/report', [ReportController::class, 'store'])->name('report.store');
+        Route::get('/report/{report}/edit', [ReportController::class, 'edit'])->name('report.edit');
+        Route::put('/report/{report}', [ReportController::class, 'update'])->name('report.update');
+        Route::delete('/report/{report}', [ReportController::class, 'destroy'])->name('report.destroy');
     });
     
-    Route::get('/reports', function () {
-        return view('reports.index');
-    });
-    
-    Route::get('/reports/create', function () {
-        return view('reports.create');
-    });
+
 });
 

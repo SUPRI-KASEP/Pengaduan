@@ -48,4 +48,9 @@ class User extends Authenticatable
             'role' => 'string',
         ];
     }
+
+    public function reports()
+    {
+        return $this->hasMany(Reports::class);
+    }
 }

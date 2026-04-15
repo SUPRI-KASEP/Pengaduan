@@ -27,12 +27,12 @@ class Reports extends Model
 
     public function category()
     {
-        return $this->belongsTo(Categories::class);
+        return $this->belongsTo(Categories::class, 'categories_id');
     }
 
     public function agency()
     {
-        return $this->belongsTo(Agencies::class);
+        return $this->belongsTo(Agencies::class, 'agencies_id');
     }
 
     public function responses()
