@@ -32,6 +32,14 @@
             </div>
         </div>
     </div>
+    <div class="col-md-3">
+        <div class="card text-white bg-warning">
+            <div class="card-body">
+                <h5>Total Categories</h5>
+                <h2>{{ \App\Models\Categories::count() }}</h2>
+            </div>
+        </div>
+    </div>
 </div>
 @endsection
 

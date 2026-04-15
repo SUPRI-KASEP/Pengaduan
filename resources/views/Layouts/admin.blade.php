@@ -78,6 +78,7 @@
         <a href="/admin">Dashboard</a>
         <a href="/admin/reports">Kelola Laporan</a>
         <a href="/admin/users">Kelola User</a>
+        <a href="{{ route('admin.categories.index') }}">Kelola Kategori</a>
 
         <hr>
 

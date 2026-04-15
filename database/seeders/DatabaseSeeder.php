@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Test User',
             'no_hp' => '081234567890',
             'email' => 'test@example.com',
-            'role' => 'user',
+            'role' => 'masyarakat',
         ]);
 
         User::create([
