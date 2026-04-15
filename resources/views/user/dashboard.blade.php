@@ -6,10 +6,10 @@
 
 <div class="row mt-4">
     <div class="col-md-6">
-        <a href="/reports" class="btn btn-lg btn-outline-primary w-100 mb-3">My Reports</a>
+        <a href="" class="btn btn-lg btn-outline-primary w-100 mb-3">My Reports</a>
     </div>
     <div class="col-md-6">
-        <a href="/reports/create" class="btn btn-lg btn-primary w-100 mb-3">Create New Report</a>
+        <a href="{{ Route('report.create') }}" class="btn btn-lg btn-primary w-100 mb-3">Create New Report</a>
     </div>
 </div>
 
