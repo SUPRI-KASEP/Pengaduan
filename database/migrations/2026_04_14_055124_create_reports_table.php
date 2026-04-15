@@ -20,7 +20,7 @@ return new class extends Migration {
             $table->text('description');
             $table->string('location')->nullable();
             $table->string('photo')->nullable();
-            $table->string('ticket_number')->unique();
+            $table->string('ticket_number');
             $table->enum('status', ['menunggu', 'terverifikasi', 'diproses', 'selesai', 'ditolak'])->default('menunggu');
 
             $table->timestamps();

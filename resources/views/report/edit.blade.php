@@ -108,11 +108,6 @@
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label">No Tiket</label>
-                            <input type="text" class="form-control bg-light" value="{{ $report->ticket_number }}" readonly>
-                        </div>
-
-                        <div class="mb-3">
                             <label class="form-label">Status</label>
                             <input type="text" class="form-control bg-light" value="{{ ucfirst($report->status) }}" readonly>
                         </div>

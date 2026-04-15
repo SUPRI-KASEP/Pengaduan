@@ -16,7 +16,9 @@ class Reports extends Model
         'agencies_id',
         'title',
         'description',
+        'location',
         'photo',
+        'ticket_number',
         'status',
     ];
 

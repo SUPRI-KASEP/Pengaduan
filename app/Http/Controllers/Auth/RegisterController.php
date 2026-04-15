@@ -30,7 +30,7 @@ class RegisterController extends Controller
             'no_hp' => $request->no_hp,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'role' => 'user', // Default to user
+            'role' => 'masyarakat', // Default to user
         ]);
 
         Auth::login($user);

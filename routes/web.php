@@ -35,7 +35,9 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
 // User routes (auth + user role)
 Route::middleware(['auth'])->group(function () {
     Route::get('/user/dashboard', function () {
-        return view('user.dashboard');
+        $myReports = auth()->user()->reports()->with(['category', 'agency'])->latest()->take(5)->get();
+        $publicReports = \App\Models\Reports::with(['user', 'category', 'agency'])->latest()->take(5)->get();
+        return view('user.dashboard', compact('myReports', 'publicReports'));
     })->name('user.dashboard');
 
     Route::resource('report', ReportController::class)->names('report');

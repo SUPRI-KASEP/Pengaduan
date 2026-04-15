@@ -36,7 +36,16 @@ class ReportController extends Controller
             'photo' => 'image|mimes:jpeg,png,jpg|max:2048',
         ]);
 
-        $ticketNumber = 'REP-' . date('Ymd') . '-' . str_pad(Reports::whereDate('created_at', today())->count() + 1, 3, '0', STR_PAD_LEFT);
+        // Generate unique daily sequential ticket
+        $dateCode = date('Ymd');
+        $sequence = Reports::where('ticket_number', 'LIKE', 'REP-' . $dateCode . '-%')->count() + 1;
+        $ticketNumber = 'REP-' . $dateCode . '-' . str_pad($sequence, 3, '0', STR_PAD_LEFT);
+        
+        // Ensure uniqueness
+        while (Reports::where('ticket_number', $ticketNumber)->exists()) {
+            $sequence++;
+            $ticketNumber = 'REP-' . $dateCode . '-' . str_pad($sequence, 3, '0', STR_PAD_LEFT);
+        }
 
         $data = $request->only(['title', 'description', 'categories_id', 'agencies_id', 'location']);
         $data['user_id'] = Auth::id();

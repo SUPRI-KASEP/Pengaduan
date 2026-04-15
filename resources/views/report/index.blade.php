@@ -29,6 +29,7 @@
                         <th>No Tiket</th>
                         <th>Status</th>
                         <th>Tanggal</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -65,10 +66,22 @@
                             </td>
 
                             <td>{{ $report->created_at->format('d-m-Y') }}</td>
+                            <td>
+                                <a href="{{ route('report.edit', $report) }}" class="btn btn-sm btn-warning" title="Edit">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <form action="{{ route('report.destroy', $report) }}" method="POST" class="d-inline" style="display: inline-block;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Yakin hapus laporan {{ $report->title }}?')" title="Hapus">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </form>
+                            </td>
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="11" class="text-center">Tidak ada data</td>
+                            <td colspan="12" class="text-center">Tidak ada data</td>
                         </tr>
                     @endforelse
                 </tbody>
