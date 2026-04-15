@@ -75,10 +75,11 @@
     <div class="sidebar">
         <h4>Admin Panel</h4>
 
-        <a href="/admin">Dashboard</a>
+        <a href="/admin/dashboard">Dashboard</a>
+        <a href="{{ route('admin.categories.index') }}">Kelola Kategori</a>
+        <a href="{{ route('admin.agencies.index') }}">Kelola Instansi</a>
         <a href="/admin/reports">Kelola Laporan</a>
         <a href="/admin/users">Kelola User</a>
-        <a href="{{ route('admin.categories.index') }}">Kelola Kategori</a>
 
         <hr>
 
