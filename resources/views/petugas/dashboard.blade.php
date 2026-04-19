@@ -74,8 +74,8 @@
                                 </td>
                                 <td>{{ $report->created_at->format('d/m/Y') }}</td>
                                 <td>
-                                    <a href="#" class="btn btn-sm btn-primary">
-                                        <i class="fas fa-eye"></i>
+                                <a href="{{ route('petugas.reports.index') }}" class="btn btn-sm btn-primary">
+                                        <i class="fas fa-list"></i> Kelola
                                     </a>
                                 </td>
                             </tr>

@@ -173,10 +173,10 @@
         </div>
 
         <div class="sidebar-menu">
-<a href="{{ route('petugas.dashboard') }}" class="active">
+            <a href="{{ route('petugas.dashboard') }}" class="active">
                 <i class="fas fa-tachometer-alt"></i> Dashboard
             </a>
-            <a href="#">
+            <a href="{{ route('petugas.reports.index') }}">
                 <i class="fas fa-clipboard-list"></i> Laporan Ditugaskan
             </a>
             <a href="#">

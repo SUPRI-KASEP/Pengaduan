@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\AgencyController;
 use App\Http\Controllers\Admin\ReportController;
+use App\Http\Controllers\Petugas\ReportController as PetugasReportController;
 use App\Http\Controllers\UserReportController;
 
 use Illuminate\Support\Facades\Auth;
@@ -46,6 +47,9 @@ Route::prefix('petugas')->middleware(['auth', 'role:petugas'])->group(function (
         ];
         return view('petugas.dashboard', compact('assignedReports', 'stats'));
     })->name('petugas.dashboard');
+    
+    Route::get('/reports', [PetugasReportController::class, 'index'])->name('petugas.reports.index');
+    Route::patch('/reports/{report}', [PetugasReportController::class, 'updateStatus'])->name('petugas.reports.updateStatus');
 });
 
 // User routes (auth + user role)
@@ -63,3 +67,5 @@ Route::middleware(['auth', 'role:masyarakat'])->group(function () {
     Route::put('/report/{report}', [UserReportController::class, 'update'])->name('report.update');
     Route::delete('/report/{report}', [UserReportController::class, 'destroy'])->name('report.destroy');
 });
+?>
+
