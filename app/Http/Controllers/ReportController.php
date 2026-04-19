@@ -12,10 +12,7 @@ use Illuminate\Support\Str;
 
 class ReportController extends Controller
 {
-    // Deprecated - use UserReportController for user routes
-    public function index() { return redirect()->route('user.reports.index'); }
-}
-{
+   
     public function index()
     {
         $reports = Auth::user()->reports()->with(['category','agency'])->latest()->paginate(10);
