@@ -150,7 +150,7 @@
         <a href="/admin/dashboard">Dashboard</a>
         <a href="{{ route('admin.categories.index') }}">Kelola Kategori</a>
         <a href="{{ route('admin.agencies.index') }}">Kelola Instansi</a>
-        <a href="/admin/reports">Kelola Laporan</a>
+<a href="{{ route('admin.reports.index') }}">Kelola Laporan</a>
         <a href="/admin/users">Kelola User</a>
 
         <hr>

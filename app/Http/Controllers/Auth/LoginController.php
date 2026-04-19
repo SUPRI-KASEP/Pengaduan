@@ -37,8 +37,11 @@ class LoginController extends Controller
             $role = Auth::user()->role ?? 'user'; // Assume manual 'role' column or default 'user'
             if ($role === 'admin') {
                 return redirect()->intended('/admin/dashboard');
+            } elseif ($role === 'petugas') {
+            return redirect()->intended('/petugas/dashboard');
+            } else {
+                return redirect()->intended('/user/dashboard');
             }
-            return redirect()->intended('/user/dashboard');
         }
 
         RateLimiter::hit($key);

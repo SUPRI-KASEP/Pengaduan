@@ -4,7 +4,7 @@
 @section('content')
 <div class="d-flex justify-content-between align-items-center mb-4">
     <h1>Admin Dashboard</h1>
-    <a href="/reports" class="btn btn-primary">Manage Reports</a>
+    <a href="{{ route('admin.reports.index') }}" class="btn btn-primary">Manage Reports</a>
 </div>
 
 <div class="row">

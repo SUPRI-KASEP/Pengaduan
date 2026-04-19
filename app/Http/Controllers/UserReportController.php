@@ -10,11 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
-class ReportController extends Controller
-{
-    // Deprecated - use UserReportController for user routes
-    public function index() { return redirect()->route('user.reports.index'); }
-}
+class UserReportController extends Controller
 {
     public function index()
     {
@@ -63,7 +59,7 @@ class ReportController extends Controller
 
         Reports::create($data);
 
-        return redirect()->route('report.index')->with('success', 'Laporan berhasil dibuat! No Tiket: ' . $ticketNumber);
+return redirect()->route('report.index')->with('success', 'Laporan berhasil dibuat! No Tiket: ' . $ticketNumber);
     }
 
     public function edit(Reports $report)

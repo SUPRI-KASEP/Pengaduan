@@ -58,9 +58,13 @@
                 
                 
                 @auth
-                    @if(auth()->user()->role === 'admin')
+@if(auth()->user()->role === 'admin')
                         <li class="nav-item">
                             <a class="nav-link" href="/admin/dashboard">Dashboard</a>
+                        </li>
+@elseif(auth()->user()->role === 'petugas')
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('petugas.dashboard') }}">Dashboard</a>
                         </li>
                     @else
                         <li class="nav-item">
