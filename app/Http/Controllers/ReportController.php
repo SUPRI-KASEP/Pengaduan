@@ -34,7 +34,7 @@ class ReportController extends Controller
             'categories_id' => 'required|exists:categories,id',
             'agencies_id' => 'required|exists:agencies,id',
             'location' => 'nullable|string|max:255',
-            'photo' => 'image|mimes:jpeg,png,jpg|max:2048',
+            'photo' => 'image|mimes:jpeg,png,jpg,webp|max:2048',
         ]);
 
         // Generate unique daily sequential ticket
